@@ -1,0 +1,12 @@
+# Project Reflection
+
+**Prompt Engineering & The GIGO Rule**
+Honestly, the biggest takeaway from this project was seeing the "Garbage In, Garbage Out" rule play out in real-time. At first, I thought just giving the system prompt a basic instruction like "Act like Anshuman Singh" would be enough. It wasn't. The model just defaulted to sounding like a generic, overly polite customer service bot. The personas only started feeling real when I locked them down with strict negative constraints (like absolutely no emojis or generic AI empathy) and fed them exact formatting examples.
+
+The coolest part of this process was definitely tweaking Kshitij Mishra's persona. Initially, I just assumed he should be super strict and use physics metaphors. But after actually digging into his real WhatsApp messages, I realized he has this specific "academic trolling" vibe—he’s super helpful, but he opens with a polite greeting and then hits you with a dry reality check about your study habits. I totally rewrote his prompt based on that real data. I even added logic so that if a student asks for code, he refuses to spoon-feed it and instead gives a hint using the Socratic method. It made the chatbot feel way more authentic.
+
+**The Tech & Real-Time Streaming**
+On the technical side, getting the `<thought_process>` tag to work was a huge win. Forcing the LLM to write out its reasoning inside XML tags before giving the final answer stopped it from hallucinating or breaking character. I handled this in the frontend React layer (`App.jsx`). I set up a regex function to strip those tags out while the text is streaming. So, from the user's perspective, they just see the bouncing CSS loading dots while the AI is "thinking," and then the actual text streams in perfectly clean.
+
+**Areas for Improvement**
+If I were to build a V2 of this, I'd move the OpenRouter API calls to a proper Node/Express backend. Right now it works, but doing it backend-side is just better practice for securing the API key and avoiding browser CORS issues. I’d also really like to mess around with dynamic `temperature` settings for the models. It would make sense to lower the temperature for Anshuman so he stays super strict and predictable, but bump it up slightly for Abhimanyu so his visionary tech metaphors have a bit more creative variety.
