@@ -22,7 +22,7 @@ npm install
 ### 2. Set Up Your API Key
 Paste your api key in the .env file.
 ```text
-VITE_OPENAI_API_KEY=your_api_key_here
+VITE_API_KEY = your_api_key_here
 ```
 
 ### 3. Start the Development Server
